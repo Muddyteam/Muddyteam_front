@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "muddy",
+    "slug": "muddy",
+    "plugins": [
+      "expo-font",
+      [
+        "@react-native-seoul/kakao-login",
+        {
+          "kakaoAppKey": "0d5b5d8e3a167647b92368c93850c2b4",
+          "overrideKakaoSDKVersion": "2.11.2",
+          "kotlinVersion": "1.9.0"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "extraMavenRepos": [
+              "https://devrepo.kakao.com/nexus/content/groups/public/"
+            ]
+          }
+        }
+      ],
+      [
+        "@react-native-kakao/core",
+        {
+          "nativeAppKey": "0d5b5d8e3a167647b92368c93850c2b4",
+          "android": {
+            "kakaoLoginScheme": "kakaotalk",
+            "kakaoAppKey": "0d5b5d8e3a167647b92368c93850c2b4",
+            "permissions": ["INTERNET", "KAKAO_ACCOUNT_LOGIN_ACTIVITY"]
+          },
+          "ios": {
+            "kakaoLoginScheme": "kakaotalk",
+            "kakaoAppKey": "0d5b5d8e3a167647b92368c93850c2b4",
+            "kakaoTalkLoginScheme": "kakaokompassauth",
+            "kakaoLinkScheme": "kakaolink",
+            "kakaoChannelScheme": "kakaoplus",
+            "infoPlist": {
+              "LSApplicationQueriesSchemes": [
+                "kakaokompassauth",
+                "kakaolink",
+                "kakaoplus"
+              ],
+              "CFBundleURLTypes": [
+                {
+                  "CFBundleURLSchemes": [
+                    "kakao0d5b5d8e3a167647b92368c93850c2b4"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    ]
+  }
+}
