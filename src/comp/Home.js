@@ -13,6 +13,7 @@ import {
 import { useRoute } from "@react-navigation/native";
 import { ThemeContext } from "styled-components";
 import CartoonContainer from "../comp/Cartoon/Container";
+import CartoonContainer2 from "./Cartoon/Container_2";
 
 const Home = ({ navigation }) => {
   const route = useRoute();
@@ -177,6 +178,20 @@ const Home = ({ navigation }) => {
               안전한 갯벌 여행 수칙
             </Text>
             <CartoonContainer />
+          </View>
+          <View style={styles.reviewSection}>
+            <Text style={[styles.sectionTitle, { fontFamily: theme.font }]}>
+              갯벌에서의
+            </Text>
+            <Text
+              style={[
+                styles.sectionTitle,
+                { fontFamily: theme.font, marginTop: -15 },
+              ]}
+            >
+              더욱 풍성한 여행을 위해
+            </Text>
+            <CartoonContainer2 />
           </View>
         </ScrollView>
       </SafeAreaView>
