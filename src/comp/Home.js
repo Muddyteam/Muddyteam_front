@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { ThemeContext } from "styled-components";
+import CartoonContainer from "../comp/Cartoon/Container";
 
 const Home = ({ navigation }) => {
   const route = useRoute();
@@ -171,6 +172,12 @@ const Home = ({ navigation }) => {
               <View style={styles.reviewBox} />
             </View>
           </View>
+          <View style={styles.reviewSection}>
+            <Text style={[styles.sectionTitle, { fontFamily: theme.font }]}>
+              안전한 갯벌 여행 수칙
+            </Text>
+            <CartoonContainer />
+          </View>
         </ScrollView>
       </SafeAreaView>
     </View>
@@ -316,8 +323,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   reviewBox: {
-    width: "30%",
-    height: 100,
+    width: "31%",
+    height: 180,
     backgroundColor: "#e0e0e0",
     borderRadius: 10,
   },
