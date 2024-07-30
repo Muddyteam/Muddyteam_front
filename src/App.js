@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LogInPage from "./comp/LogInPage";
 import Home from "./comp/Home";
+import Retro from "./comp/Recommended_Place/retro";
 
 const loadFonts = async () => {
   await Font.loadAsync({
@@ -39,6 +40,7 @@ export default function App() {
         >
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="LogInPage" component={LogInPage} />
+          <Stack.Screen name="Retro" component={Retro} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

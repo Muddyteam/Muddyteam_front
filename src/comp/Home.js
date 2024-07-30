@@ -155,7 +155,7 @@ const Home = ({ navigation }) => {
             </Text>
             <TouchableOpacity
               style={styles.recommendationBox}
-              //onPress={() => navigation.navigate("Retro")}
+              onPress={() => navigation.navigate("Retro")}
             >
               <Image
                 source={require("../../assets/imgs/placethumbnail.png")}
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
   },
   recommendationBox: {
     width: "100%",
-    height: 190,
+    height: 220,
     backgroundColor: "#e0e0e0",
     borderRadius: 10,
     overflow: "hidden",
