@@ -11,9 +11,9 @@ import styled, { ThemeProvider } from "styled-components/native";
 import { WebView } from "react-native-webview";
 import { theme } from "../../theme";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 import * as SplashScreen from "expo-splash-screen";
 
-// Prevent auto-hide of splash screen until ready
 SplashScreen.preventAutoHideAsync();
 
 const Container = styled.View`
@@ -93,10 +93,26 @@ const LogInPage = () => {
       const profileData = await profileResponse.json();
       console.log("Profile Data:", profileData);
 
-      setLoading(false);
-      navigation.navigate("Home", {
-        username: profileData.properties.nickname,
-      });
+      try {
+        await axios.post("http://3.34.135.35:8081/kakao/login", {
+          id: profileData.id,
+          nickname: profileData.properties.nickname,
+          profileImage: profileData.properties.profile_image,
+          thumbnailImage: profileData.properties.thumbnail_image,
+        });
+
+        setLoading(false);
+        navigation.navigate("Home", {
+          username: profileData.properties.nickname,
+        });
+      } catch (serverError) {
+        console.error("Error sending profile data to server:", serverError);
+        Alert.alert(
+          "서버 전송 실패",
+          `서버로 프로필 정보를 전송하는 데 실패했습니다: ${serverError.message}`
+        );
+        setLoading(false);
+      }
     } catch (error) {
       console.error("Error fetching token or profile:", error);
       Alert.alert(
