@@ -9,6 +9,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LogInPage from "./comp/LogInPage";
 import Home from "./comp/Home";
 import Retro from "./comp/Recommended_Place/retro";
+import Time from "./comp/Cartoon/Time";
+import Clothes from "./comp/Cartoon/Clothes";
 
 const loadFonts = async () => {
   await Font.loadAsync({
@@ -41,6 +43,8 @@ export default function App() {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="LogInPage" component={LogInPage} />
           <Stack.Screen name="Retro" component={Retro} />
+          <Stack.Screen name="Time" component={Time} />
+          <Stack.Screen name="Clothes" component={Clothes} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

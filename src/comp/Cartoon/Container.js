@@ -1,13 +1,13 @@
 import React, { useMemo, useRef, useState } from "react";
 import {
   View,
-  Text,
   FlatList,
   TouchableOpacity,
   ImageBackground,
   Dimensions,
   StyleSheet,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import useInterval from "./Interval";
 
 const windowWidth = Dimensions.get("window").width;
@@ -18,12 +18,15 @@ export default function CartoonContainer() {
     () => [
       {
         mainImageUrl: require("../../../assets/imgs/black.png"),
+        targetScreen: "Time",
       },
       {
         mainImageUrl: require("../../../assets/imgs/black.png"),
+        targetScreen: "OtherScreen",
       },
       {
         mainImageUrl: require("../../../assets/imgs/black.png"),
+        targetScreen: "AnotherScreen",
       },
     ],
     []
@@ -31,9 +34,9 @@ export default function CartoonContainer() {
 
   const flatListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigation = useNavigation();
 
   useInterval(() => {
-    // 3초마다 실행되는 함수
     if (currentIndex < data.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
@@ -41,6 +44,10 @@ export default function CartoonContainer() {
     }
     flatListRef.current.scrollToIndex({ index: currentIndex, animated: true });
   }, 5000);
+
+  const handlePress = (targetScreen) => {
+    navigation.navigate(targetScreen);
+  };
 
   return (
     <View style={styles.container}>
@@ -50,7 +57,10 @@ export default function CartoonContainer() {
         horizontal
         contentContainerStyle={styles.contentContainer}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.touchable}>
+          <TouchableOpacity
+            style={styles.touchable}
+            onPress={() => handlePress(item.targetScreen)}
+          >
             <ImageBackground
               style={styles.card}
               imageStyle={styles.image}
