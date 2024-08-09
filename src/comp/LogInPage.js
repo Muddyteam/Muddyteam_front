@@ -94,12 +94,28 @@ const LogInPage = () => {
       console.log("Profile Data:", profileData);
 
       try {
-        await axios.post("http://3.34.135.35:8081/kakao/login", {
-          id: profileData.id,
-          nickname: profileData.properties.nickname,
-          profileImage: profileData.properties.profile_image,
-          thumbnailImage: profileData.properties.thumbnail_image,
-        });
+        // 백엔드에 프로필 정보를 보내고 로그인 응답 받기
+        const response = await axios.post(
+          "http://172.30.3.177:8080/kakao/login",
+          {
+            id: profileData.id,
+            nickname: profileData.properties.nickname,
+            profileImage: profileData.properties.profile_image,
+            thumbnailImage: profileData.properties.thumbnail_image,
+          }
+        );
+
+        // 백엔드에서 받은 응답 처리
+        const {
+          username,
+          accessToken: serverAccessToken,
+          refreshToken,
+        } = response.data;
+
+        // 필요시 토큰을 저장 (예: AsyncStorage, Context API, Redux 등)
+        console.log("Username:", username);
+        console.log("AccessToken:", serverAccessToken);
+        console.log("RefreshToken:", refreshToken);
 
         setLoading(false);
         navigation.navigate("Home", {
