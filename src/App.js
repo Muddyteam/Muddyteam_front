@@ -7,7 +7,7 @@ import { theme } from "../theme";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LogInPage from "./comp/LogInPage";
-import Home from "./comp/Home";
+import Nav from "./comp/Nav"; // Nav.js 파일을 가져옵니다
 import Retro from "./comp/Recommended_Place/retro";
 import Time from "./comp/Cartoon/Time";
 import Clothes from "./comp/Cartoon/Clothes";
@@ -37,10 +37,10 @@ export default function App() {
     <ThemeProvider theme={{ ...theme, font: "WavvePADO-Regular" }}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Nav" // 처음 로드될 화면을 Nav로 설정합니다
           screenOptions={{ headerShown: false }}
         >
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Nav" component={Nav} />
           <Stack.Screen name="LogInPage" component={LogInPage} />
           <Stack.Screen name="Retro" component={Retro} />
           <Stack.Screen name="Time" component={Time} />

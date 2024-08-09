@@ -12,10 +12,10 @@ import {
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { ThemeContext } from "styled-components";
-import CartoonContainer from "../comp/Cartoon/Container";
+import CartoonContainer from "./Cartoon/Container";
 import CartoonContainer2 from "./Cartoon/Container_2";
 
-const Home = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
   const route = useRoute();
   const theme = useContext(ThemeContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -345,4 +345,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;
