@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./HomeScreen";
 import MapScreen from "./map/MapScreen";
-import BookScreen from "./BookScreen";
+import BookScreen from "./Encyclopedia/BookScreen";
 import MyPageScreen from "./MyPageScreen";
 import { Image } from "react-native";
 
