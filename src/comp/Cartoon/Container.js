@@ -22,7 +22,7 @@ export default function CartoonContainer() {
       },
       {
         mainImageUrl: require("../../../assets/imgs/black.png"),
-        targetScreen: "OtherScreen",
+        targetScreen: "Clothes",
       },
       {
         mainImageUrl: require("../../../assets/imgs/black.png"),
